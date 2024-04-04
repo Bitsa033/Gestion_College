@@ -15,7 +15,7 @@ class EtudiantSeeder extends Seeder
     public function run(): void
     {
         DB::table('etudiants')->insert([
-            'user_id'=>3,
+            'user_id'=>4,
             'created_at'=>now(),
             'updated_at'=>now()
         ]);

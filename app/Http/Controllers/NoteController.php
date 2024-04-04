@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\note;
 use App\Http\Requests\StorenoteRequest;
 use App\Http\Requests\UpdatenoteRequest;
+use App\Http\Resources\Note as ResourcesNote;
 
 class NoteController extends Controller
 {
@@ -13,7 +14,8 @@ class NoteController extends Controller
      */
     public function index()
     {
-        //
+        $data = note::all();
+        return new ResourcesNote($data);
     }
 
     /**

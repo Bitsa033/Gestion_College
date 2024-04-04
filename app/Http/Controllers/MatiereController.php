@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\matiere;
 use App\Http\Requests\StorematiereRequest;
 use App\Http\Requests\UpdatematiereRequest;
+use App\Http\Resources\Matiere as ResourcesMatiere;
 
 class MatiereController extends Controller
 {
@@ -13,7 +14,8 @@ class MatiereController extends Controller
      */
     public function index()
     {
-        //
+        $data = matiere::all();
+        return new ResourcesMatiere($data);
     }
 
     /**

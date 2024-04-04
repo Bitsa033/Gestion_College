@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\classe;
 use App\Http\Requests\StoreclasseRequest;
 use App\Http\Requests\UpdateclasseRequest;
+use App\Http\Resources\Classe as ResourcesClasse;
 
 class ClasseController extends Controller
 {
@@ -13,7 +14,8 @@ class ClasseController extends Controller
      */
     public function index()
     {
-        //
+        $data = classe::all();
+        return new ResourcesClasse($data);
     }
 
     /**

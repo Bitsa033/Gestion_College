@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\inscription;
 use App\Http\Requests\StoreinscriptionRequest;
 use App\Http\Requests\UpdateinscriptionRequest;
+use App\Http\Resources\Inscription as ResourcesInscription;
 
 class InscriptionController extends Controller
 {
@@ -13,7 +14,8 @@ class InscriptionController extends Controller
      */
     public function index()
     {
-        //
+        $data = inscription::all();
+        return new ResourcesInscription($data);
     }
 
     /**

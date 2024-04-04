@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\appreciation;
 use App\Http\Requests\StoreappreciationRequest;
 use App\Http\Requests\UpdateappreciationRequest;
+use App\Http\Resources\Appreciation as ResourcesAppreciation;
 
 class AppreciationController extends Controller
 {
@@ -13,7 +14,8 @@ class AppreciationController extends Controller
      */
     public function index()
     {
-        //
+        $data = appreciation::all();
+        return new ResourcesAppreciation($data);
     }
 
     /**

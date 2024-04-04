@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\etudiant;
 use App\Http\Requests\StoreetudiantRequest;
 use App\Http\Requests\UpdateetudiantRequest;
+use App\Http\Resources\Etudiant as ResourcesEtudiant;
 
 class EtudiantController extends Controller
 {
@@ -13,7 +14,8 @@ class EtudiantController extends Controller
      */
     public function index()
     {
-        //
+        $data = etudiant::all();
+        return new ResourcesEtudiant($data);
     }
 
     /**
