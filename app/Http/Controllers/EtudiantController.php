@@ -29,9 +29,14 @@ class EtudiantController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreetudiantRequest $request)
+    public function store(StoreEtudiantRequest $request)
     {
-        //
+        etudiant::create([
+            'user_id' => $request->get('user'),
+        ]);
+
+        return redirect('etudiant');
+
     }
 
     /**

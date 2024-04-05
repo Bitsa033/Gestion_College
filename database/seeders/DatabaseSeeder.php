@@ -17,9 +17,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             // InscriptionSeeder::class
-            NoteSeeder::class
+            // NoteSeeder::class
             // UserSeeder::class,
-            // ClasseSeeder::class,
+            ClasseSeeder::class,
             // EtudiantSeeder::class
             // AppreciationSeeder::class
             // MatiereSeeder::class

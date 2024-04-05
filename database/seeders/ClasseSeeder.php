@@ -14,7 +14,7 @@ class ClasseSeeder extends Seeder
     public function run(): void
     {
         DB::table('classes')->insert([
-            'name'=>'CE2',
+            'name'=>'CM1',
             'created_at'=>now(),
             'updated_at'=>now()
         ]);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreclasseRequest;
 use App\Models\matiere;
 use App\Http\Requests\StorematiereRequest;
 use App\Http\Requests\UpdatematiereRequest;
@@ -18,20 +19,18 @@ class MatiereController extends Controller
         return new ResourcesMatiere($data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorematiereRequest $request)
+    public function store(StoreclasseRequest $request)
     {
-        //
+        matiere::create([
+            'name' => $request->get('name'),
+        ]);
+
+        return redirect('matieres');
+
     }
 
     /**

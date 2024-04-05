@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\classe;
 use App\Models\etudiant;
 use App\Models\matiere;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -58,7 +59,7 @@ class HomeController extends Controller
 
     public function etudiant ()
     {
-        $etudiants=etudiant::all();
+        $etudiants=User::all();
         return view('etudiant.index',[
             'etudiants'=>$etudiants
         ]);

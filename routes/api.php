@@ -34,22 +34,22 @@ Route::get('show_user/{id}', [UserController::class,'show']);
 Route::put('update_user/{id}', [UserController::class,'update']);
 Route::get('logout_user', [UserController::class,'logout'])->middleware('auth:sanctum');
 // classes
-Route::get('classes',[ClasseController::class,'index']);
-Route::get('store_classe',[ClasseController::class,'store']);
+Route::get('classes',[ClasseController::class,'index'])->name('classes');
+Route::post('store_classe',[ClasseController::class,'store'])->name('store_classe');
 Route::get('show_classe',[EtudiantFactory::class,'show']);
 Route::put('update_classe/{id}', [UserController::class,'update']);
 // matieres
-Route::get('matieres', [MatiereController::class,'index']);
-Route::post('store_matiere', [MatiereController::class,'store']);
-Route::get('show_matiere/{id}', [MatiereController::class,'show']);
-Route::put('update_matiere/{id}', [UserController::class,'update']);
+Route::get('matieres', [MatiereController::class,'index'])->name('matieres');
+Route::post('store_matiere', [MatiereController::class,'store'])->name('store_matiere');
+Route::get('show_matiere/{id}', [MatiereController::class,'show'])->name('show_matiere');
+Route::put('update_matiere/{id}', [UserController::class,'update'])->name('update_matiere');
 // etudiants
-Route::get('etudiants', [EtudiantController::class,'index']);
-Route::post('store_etudiant', [EtudiantController::class,'store']);
-Route::get('show_etudiant/{id}', [EtudiantController::class,'show']);
+Route::get('etudiants', [EtudiantController::class,'index'])->name('etudiants');
+Route::post('store_etudiant', [EtudiantController::class,'store'])->name('store_etudiant');
+Route::get('show_etudiant/{id}', [EtudiantController::class,'show'])->name('show_etudiant');
 Route::put('update_etudiant/{id}', [EtudiantController::class,'update']);
 // appreciations
-Route::get('appreciations', [AppreciationController::class,'index']);
+Route::get('appreciations', [AppreciationController::class,'index'])->name('appreciations');
 Route::post('store_appreciaiton', [AppreciationController::class,'store']);
 Route::get('show_appreciation/{id}', [AppreciationController::class,'show']);
 Route::put('update_appreciation/{id}', [AppreciationController::class,'update']);

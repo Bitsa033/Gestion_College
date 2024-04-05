@@ -18,20 +18,18 @@ class ClasseController extends Controller
         return new ResourcesClasse($data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(StoreclasseRequest $request)
     {
-        //
+        classe::create([
+            'name' => $request->get('name'),
+        ]);
+
+        return redirect('classes');
+
     }
 
     /**
