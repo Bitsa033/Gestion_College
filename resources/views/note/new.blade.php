@@ -33,7 +33,7 @@
                   
                 <tr>
                   <td>
-                    <input type="checkbox" name="matiere" value="{{$item->id}}">
+                    <input type="checkbox" checked name="matiere" value="{{$item->id}}">
                     {{$item->name}}
                   </td>
                   <td>
