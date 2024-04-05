@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\classe;
 use App\Models\etudiant;
 use App\Models\matiere;
+use App\Models\note;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -59,14 +60,27 @@ class HomeController extends Controller
 
     public function etudiant ()
     {
-        $etudiants=User::all();
+        $etudiants=etudiant::all();
         return view('etudiant.index',[
             'etudiants'=>$etudiants
         ]);
     }
 
+    public function create_etudiant()
+    {
+        return view('etudiant.new');
+    }
+
     public function notes()
     {
-        return view('notes.index');
+        $notes=note::all();
+        return view('note.index',[
+            'notes'=>$notes
+        ]);
+    }
+
+    public function create_note()
+    {
+        return view('note.new');
     }
 }

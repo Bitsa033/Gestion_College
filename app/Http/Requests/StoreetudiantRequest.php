@@ -11,7 +11,7 @@ class StoreetudiantRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,7 @@ class StoreetudiantRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'phone' => ['required', 'string', 'max:255', 'unique:users'],
         ];
     }
 }

@@ -25,8 +25,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('acceuil', [HomeController::class,'acceuil'])->name('acceuil');
 Route::get('classes', [HomeController::class,'classe'])->name('classes');
 Route::get('etudiants', [HomeController::class,'etudiant'])->name('etudiants');
+Route::get('create_etudiant', [HomeController::class,'create_etudiant'])->name('create_etudiant');
 Route::get('matieres', [HomeController::class,'matiere'])->name('matieres');
 Route::get('inscription', [HomeController::class,'inscription'])->name('inscription');
 Route::get('notes', [HomeController::class,'notes'])->name('notes');
+Route::get('create_note', [HomeController::class,'create_note'])->name('create_note');
 Route::get('appreciations', [HomeController::class,'appreciations'])->name('appreciations');
 Route::get('coefficients', [HomeController::class,'coefficients'])->name('coefficients');

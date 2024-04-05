@@ -5,16 +5,16 @@
     <div class="col-lg-9">
       <!--CUSTOM CHART START -->
       <div class="border-head"><br><br>
-        <h3>Etudiant</h3>
+        <h3>Notes</h3>
         
-        <form method="POST" action="{{ route('store_etudiant') }}">
+        <form method="POST" action="{{ route('store_note') }}">
             @csrf
 
             <div class="row mb-3">
-                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Nom') }}</label>
+                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Etudiant') }}</label>
 
                 <div class="col-md-6">
-                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                    <input id="etudiant" type="text" class="form-control @error('name') is-invalid @enderror" name="etudiant" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                     @error('name')
                         <span class="invalid-feedback" role="alert">
@@ -25,12 +25,12 @@
             </div>
             <br>
             <div class="row mb-3">
-                <label for="surname" class="col-md-4 col-form-label text-md-end">{{ __('Prénom') }}</label>
+                <label for="matiere" class="col-md-4 col-form-label text-md-end">{{ __('Matière') }}</label>
 
                 <div class="col-md-6">
-                    <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
+                    <input id="matiere" type="text" class="form-control @error('Matiere') is-invalid @enderror" name="matiere" required>
 
-                    @error('surname')
+                    @error('matiere')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -39,12 +39,12 @@
             </div>
             <br>
             <div class="row mb-3">
-                <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('Téléphone') }}</label>
+                <label for="moyenne" class="col-md-4 col-form-label text-md-end">{{ __('Moyenne') }}</label>
 
                 <div class="col-md-6">
-                    <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
+                    <input id="moyenne" type="text" class="form-control @error('moyenne') is-invalid @enderror" name="moyenne" value="{{ old('moyenne') }}" required autocomplete="phone" autofocus>
 
-                    @error('phone')
+                    @error('moyenne')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -52,20 +52,7 @@
                 </div>
             </div>
             <br>
-            <div class="row mb-3">
-                <label for="adress" class="col-md-4 col-form-label text-md-end">{{ __('Adresse') }}</label>
-
-                <div class="col-md-6">
-                    <input id="adress" type="text" class="form-control @error('adress') is-invalid @enderror" name="adress" value="{{ old('adress') }}" required autocomplete="adress" autofocus>
-
-                    @error('adress')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-            </div>
-            <br>
+            
             <div class="row mb-3">
                 <div class="col-md-6 offset-md-4">
                     <button type="submit" class="btn btn-primary">

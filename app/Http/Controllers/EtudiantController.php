@@ -6,6 +6,8 @@ use App\Models\etudiant;
 use App\Http\Requests\StoreetudiantRequest;
 use App\Http\Requests\UpdateetudiantRequest;
 use App\Http\Resources\Etudiant as ResourcesEtudiant;
+use App\Models\inscription;
+use Illuminate\Support\Facades\DB;
 
 class EtudiantController extends Controller
 {
@@ -19,23 +21,24 @@ class EtudiantController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(StoreEtudiantRequest $request)
     {
-        etudiant::create([
-            'user_id' => $request->get('user'),
+        $tore_etudiant=etudiant::create([
+            'user_id' => 1,
+            'name' => $request['name'],
+            'surname' => $request['surname'],
+            'phone' => $request['phone'],
+            'adress' => $request['adress'],
         ]);
+        $etudiant=DB::table('etudiants')->where('name','=',$tore_etudiant);
+        // dd($etudiant);
+        // inscription::create([
+        //     'etudiant_id' => 1,
+        // ]);
 
-        return redirect('etudiant');
+        return redirect('etudiants');
 
     }
 

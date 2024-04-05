@@ -35,7 +35,7 @@
             </a>
           <ul class="sub">
             <li><a href="{{ route('etudiants') }}">Afficher les étudiants</a></li>
-            <li><a href="{{ route('matieres') }}">Enregistrer un étudiant</a></li>
+            <li><a href="{{ route('create_etudiant') }}">Enregistrer un étudiant</a></li>
           </ul>
         </li>
         <li class="sub-menu">
@@ -44,7 +44,8 @@
             <span>Gestion des notes</span>
             </a>
           <ul class="sub">
-            <li><a href="{{ route('matieres') }}">Afficher les notes</a></li>
+            <li><a href="{{ route('notes') }}">Afficher les notes</a></li>
+            <li><a href="{{ route('create_note') }}">Enregistrer une note</a></li>
           </ul>
         </li>
         
