@@ -81,6 +81,9 @@ class HomeController extends Controller
 
     public function create_note()
     {
-        return view('note.new');
+        $data=matiere::all();
+        return view('note.new',[
+            'matieres'=>$data
+        ]);
     }
 }

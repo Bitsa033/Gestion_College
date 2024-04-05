@@ -11,7 +11,7 @@
             @csrf
 
             <div class="row mb-3">
-                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Etudiant') }}</label>
+                <label for="name" class="col-md-3 col-form-label text-md-end">{{ __('Etudiant') }}</label>
 
                 <div class="col-md-6">
                     <input id="etudiant" type="text" class="form-control @error('name') is-invalid @enderror" name="etudiant" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -24,34 +24,25 @@
                 </div>
             </div>
             <br>
-            <div class="row mb-3">
-                <label for="matiere" class="col-md-4 col-form-label text-md-end">{{ __('Matière') }}</label>
-
-                <div class="col-md-6">
-                    <input id="matiere" type="text" class="form-control @error('Matiere') is-invalid @enderror" name="matiere" required>
-
-                    @error('matiere')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-            </div>
-            <br>
-            <div class="row mb-3">
-                <label for="moyenne" class="col-md-4 col-form-label text-md-end">{{ __('Moyenne') }}</label>
-
-                <div class="col-md-6">
-                    <input id="moyenne" type="text" class="form-control @error('moyenne') is-invalid @enderror" name="moyenne" value="{{ old('moyenne') }}" required autocomplete="phone" autofocus>
-
-                    @error('moyenne')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-            </div>
-            <br>
+            <table class="table">
+              <tr>
+                <th>Matiere</th>
+                <th>Note</th>
+              </tr>
+              @foreach ($matieres as $item)
+                  
+                <tr>
+                  <td>
+                    <input type="checkbox" name="matiere" value="{{$item->id}}">
+                    {{$item->name}}
+                  </td>
+                  <td>
+                    <input id="moyenne" type="text" class="form-control @error('moyenne') is-invalid @enderror" name="moyenne" required autofocus>
+                  </td>
+                </tr>
+              @endforeach
+              
+            </table>
             
             <div class="row mb-3">
                 <div class="col-md-6 offset-md-4">
