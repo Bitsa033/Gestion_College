@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\classe;
 use App\Models\etudiant;
+use App\Models\inscription;
 use App\Models\matiere;
 use App\Models\note;
 use App\Models\User;
@@ -69,6 +70,14 @@ class HomeController extends Controller
     public function create_etudiant()
     {
         return view('etudiant.new');
+    }
+
+    public function create_inscription()
+    {
+        $data=etudiant::all();
+        return view('etudiant.inscription',[
+            'inscriptions'=>$data
+        ]);
     }
 
     public function notes()
