@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\etudiant;
+use App\Models\User;
 use Database\Factories\EtudiantFactory;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Seeder;
@@ -15,14 +17,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call([
-            // InscriptionSeeder::class
-            // NoteSeeder::class
-            // UserSeeder::class,
-            ClasseSeeder::class,
-            // EtudiantSeeder::class
-            // AppreciationSeeder::class
-            // MatiereSeeder::class
-        ]);
+        User::factory()
+        ->has(etudiant::factory()->count(4))
+        ->count(10)
+        ->create();
+        // $this->call([
+        //     InscriptionSeeder::class
+        //     NoteSeeder::class
+        //     UserSeeder::class,
+        //     ClasseSeeder::class,
+        //     EtudiantSeeder::class
+        //     AppreciationSeeder::class
+        //     MatiereSeeder::class
+        // ]);
+        
     }
 }

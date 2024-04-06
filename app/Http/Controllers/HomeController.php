@@ -22,6 +22,14 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
+    public function index2($slug = null)
+    {
+        $query = $slug ? User::whereSlug($slug)->firstOrFail()->films() : etudiant::query();
+        $films = $query->withTrashed()->oldest('title')->paginate(5);
+        $categories = User::all();
+        return view('index', compact('films', 'categories', 'slug'));
+    }
+
     /**
      * Show the application dashboard.
      *

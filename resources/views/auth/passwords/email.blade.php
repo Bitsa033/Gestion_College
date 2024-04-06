@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../dist/css/bootstrap.min.css">
 @extends('layouts.app')
 
 @section('content')

@@ -192,7 +192,10 @@
     </div>
     <div class="top-menu">
       <ul class="nav pull-right top-menu">
-        <li><a class="logout" href="{{ route('logout') }}">Logout</a></li>
+        <form action="{{route('logout')}}" method="post">
+          @csrf
+          <button class="btn btn-primary" style="margin-top: 8%" type="submit"><i class="fa fa-power-off"></i> Se déconnecter</button>
+        </form>
       </ul>
     </div>
   </header>
