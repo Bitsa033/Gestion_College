@@ -33,11 +33,12 @@
                   
                 <tr>
                   <td>
-                    <input type="checkbox" checked name="matiere{{$item->id}}" value="{{$item->id}}">
+                    <input type="checkbox" checked name="matiere[]" value="{{$item->id}}">
+                    <input type="hidden" name="cour[]" value="{{$item->id}}">
                     {{$item->name}}
                   </td>
                   <td>
-                    <input id="moyenne" type="text" class="form-control @error('moyenne') is-invalid @enderror" name="moyenne{{$item->id}}" required autofocus>
+                    <input type="text" class="form-control @error('moyenne') is-invalid @enderror" name="moyenne[]" required autofocus>
                   </td>
                 </tr>
               @endforeach

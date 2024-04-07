@@ -31,19 +31,23 @@ class NoteController extends Controller
      */
     public function store(StorenoteRequest $request)
     {
-        $rq=$request->request;
-        $sze=count($rq);
-        for ($i=1; $i <=$sze ; $i++) { 
-            dd($rq);
-            dd( $_POST['matiere'.$i]);
-            // note::create([
-            //     'etudiant_id' =>$request->get('etudiant'),
-            //     'matiere_id' => $request->get('matiere'.$i),
-            //     'moyenne' => $request->get('moyenne'.$i),
-            //     'appreciation_id' => 1,
-            // ]);
+        $rq = $request->request;
+        $sze = count($rq);
+        $check_array = $_POST['matiere'];
+        foreach ($_POST['matiere'] as $key => $value) {
+            if (in_array($_POST['matiere'][$key], $check_array)) {
+
+                note::create([
+                    'etudiant_id'=>$request->get('etudiant'),
+                    'matiere_id'=>$_POST['matiere'][$key],
+                    'moyenne'=>$_POST['moyenne'][$key],
+                    'appreciation_id'=>1,
+                    'created_at'=>now(),
+                    'updated_at'=>now()
+                ]);
+            }
         }
-        
+
 
         return redirect('notes');
     }
