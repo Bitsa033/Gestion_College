@@ -35,7 +35,7 @@ class NoteController extends Controller
         $sze=count($rq);
         for ($i=1; $i <=$sze ; $i++) { 
             dd($rq);
-            echo $request->get('matiere'.$i);
+            dd( $_POST['matiere'.$i]);
             // note::create([
             //     'etudiant_id' =>$request->get('etudiant'),
             //     'matiere_id' => $request->get('matiere'.$i),

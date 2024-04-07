@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <div class="col-lg-9">
-      <!--CUSTOM CHART START -->
+      <!--CUSTOM CHART START --> <br>  <br>
       <div class="border-head">
         <h3>Classes</h3>
         <form method="POST" class="form-inline" action="{{ route('store_classe') }}">
