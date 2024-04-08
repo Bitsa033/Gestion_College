@@ -37,18 +37,11 @@
             </thead>
             <tbody>
                 @foreach ($notes as $item)
-                    @if (!$item)
-                        <tr>
-                            <td class="text-center"> Liste vide...</td>
-                        </tr>
-                    @else
-                        <tr>
-                            <td>{{$item->etudiant_id}}</td>
-                            <td>{{$item->matiere_id}}</td>
-                            <td>{{$item->moyenne}}</td>
-                        </tr>
-                    @endif
-                    
+                <tr>
+                  <td>{{$item->etudiant['name']}}</td>
+                  <td>{{$item->matiere['name']}}</td>
+                  <td>{{$item->moyenne}}</td>
+              </tr>
                 @endforeach
             </tbody>
         </table>

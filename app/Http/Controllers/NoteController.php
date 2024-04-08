@@ -31,8 +31,6 @@ class NoteController extends Controller
      */
     public function store(StorenoteRequest $request)
     {
-        $rq = $request->request;
-        $sze = count($rq);
         $check_array = $_POST['matiere'];
         foreach ($_POST['matiere'] as $key => $value) {
             if (in_array($_POST['matiere'][$key], $check_array)) {

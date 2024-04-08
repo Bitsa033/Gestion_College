@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\Inscription as ResourcesInscription;
 use App\Models\classe;
 use App\Models\etudiant;
 use App\Models\inscription;
@@ -75,6 +76,15 @@ class HomeController extends Controller
         ]);
     }
 
+    public function inscriptions()
+    {
+        $inscriptions = inscription::with('etudiant','classe')->get();
+        
+        return view('etudiant.inscriptions',[
+            'etudiants'=>$inscriptions
+        ]);
+    }
+
     public function create_etudiant()
     {
         return view('etudiant.new');
@@ -90,7 +100,7 @@ class HomeController extends Controller
 
     public function notes()
     {
-        $notes=note::all();
+        $notes=note::with('etudiant','matiere')->get();
         return view('note.index',[
             'notes'=>$notes
         ]);

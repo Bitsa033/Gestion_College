@@ -36,6 +36,7 @@
           <ul class="sub">
             <li><a href="{{ route('etudiants') }}">Afficher les étudiants</a></li>
             <li><a href="{{ route('create_etudiant') }}">Enregistrer un étudiant</a></li>
+            <li><a href="{{ route('inscriptions') }}">Afficher les inscriptions</a></li>
             <li><a href="{{ route('create_inscription') }}">Inscrire un étudiant</a></li>
           </ul>
         </li>

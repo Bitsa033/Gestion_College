@@ -16,8 +16,13 @@ class etudiant extends Model
         'user_id',
     ];
 
-    public function user()
+    public function inscriptions()
     { 
-        return $this->belongsTo(User::class); 
+        return $this->belongsTo(inscription::class); 
+    }
+
+    public function classes()
+    { 
+        return $this->belongsTo(inscription::class); 
     }
 }

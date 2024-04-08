@@ -7,6 +7,7 @@ use App\Http\Requests\StoreetudiantRequest;
 use App\Http\Requests\UpdateetudiantRequest;
 use App\Http\Resources\Etudiant as ResourcesEtudiant;
 use App\Models\inscription;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 class EtudiantController extends Controller
@@ -16,7 +17,7 @@ class EtudiantController extends Controller
      */
     public function index()
     {
-        $data = etudiant::all();
+        $data = User::with('etudiant')->get();
         return new ResourcesEtudiant($data);
     }
 

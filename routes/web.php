@@ -25,6 +25,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('acceuil', [HomeController::class,'acceuil'])->name('acceuil');
 Route::get('classes', [HomeController::class,'classe'])->name('classes');
 Route::get('etudiants', [HomeController::class,'etudiant'])->name('etudiants');
+Route::get('inscriptions', [HomeController::class,'inscriptions'])->name('inscriptions');
 Route::get('create_etudiant', [HomeController::class,'create_etudiant'])->name('create_etudiant');
 Route::get('matieres', [HomeController::class,'matiere'])->name('matieres');
 Route::get('create_inscription', [HomeController::class,'create_inscription'])->name('create_inscription');

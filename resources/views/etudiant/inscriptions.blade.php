@@ -5,49 +5,25 @@
     <div class="col-lg-9">
       <!--CUSTOM CHART START -->
       <div class="border-head"><br><br>
-        <h3>Inscription de l'étudiant</h3>
+        <h3>Etudiants par classe</h3>
         
-        <form method="POST" action="{{ route('store_inscription') }}">
-            @csrf
-
-            <div class="row mb-3">
-                <label for="name" class="col-md-3 col-form-label text-md-end">{{ __('Etudiant') }}</label>
-
-                <div class="col-md-6">
-                    <input type="text" class="form-control" name="">
-
-                </div>
-            </div>
-            <br>
-            <table class="table">
-              <tr>
-                <th>Etudiant</th>
-                <th>Classe</th>
-              </tr>
-              @foreach ($inscriptions as $item)
-                  
+        <table class="table table-bordered">
+            <thead>
                 <tr>
-                  <td>
-                    <input type="checkbox" checked name="etudiant[]" value="{{$item->id}}">
-                    <input type="hidden" name="inscription[]" value="{{$item->id}}">
-                    {{$item->name}}
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" name="classe[]" autofocus>
-                  </td>
+                    <th>Etudiant</th>
+                    <th>Classe</th>
                 </tr>
-              @endforeach
-              
-            </table>
-            
-            <div class="row mb-3">
-                <div class="col-md-6 offset-md-4">
-                    <button type="submit" class="btn btn-primary">
-                        {{ __('Enregistrer') }}
-                    </button>
-                </div>
-            </div>
-        </form>
+            </thead>
+            <tbody>
+                @foreach ($etudiants as $item)
+                <tr>
+                  <td>{{$item->etudiant['name']}} {{$item->surname}}</td>
+                  <td>{{$item->classe['name']}}</td>
+                </tr>
+                    
+                @endforeach
+            </tbody>
+        </table>
       </div>
     
       <!--custom chart end-->

@@ -55,7 +55,7 @@ Route::get('show_appreciation/{id}', [AppreciationController::class,'show']);
 Route::put('update_appreciation/{id}', [AppreciationController::class,'update']);
 // inscription
 Route::get('inscriptions', [InscriptionController::class,'index']);
-Route::post('store_inscription', [InscriptionController::class,'store']);
+Route::post('store_inscription', [InscriptionController::class,'store'])->name('store_inscription');
 Route::get('show_inscription/{id}', [InscriptionController::class,'show']);
 Route::put('update_inscription/{id}', [InscriptionController::class,'update']);
 // notes
