@@ -24,7 +24,7 @@ class InscriptionController extends Controller
      */
     public function store(StoreinscriptionRequest $request)
     {
-        $check_array = $_POST['etudiant'];
+        $check_array = $_POST['inscription'];
         foreach ($_POST['etudiant'] as $key => $value) {
             if (in_array($_POST['etudiant'][$key], $check_array)) {
 

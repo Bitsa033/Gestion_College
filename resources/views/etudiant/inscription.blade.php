@@ -28,8 +28,8 @@
                   
                 <tr>
                   <td>
-                    <input type="checkbox" checked name="etudiant[]" value="{{$item->id}}">
-                    <input type="hidden" name="inscription[]" value="{{$item->id}}">
+                    <input type="checkbox" checked name="inscription[]" value="{{$item->id}}">
+                    <input type="hidden" name="etudiant[]" value="{{$item->id}}">
                     {{$item->name}}
                   </td>
                   <td>

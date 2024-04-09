@@ -20,18 +20,10 @@ class inscription extends Model
     { 
         return $this->belongsTo(etudiant::class); 
     }
-    
+
     public function classe()
     { 
         return $this->belongsTo(classe::class); 
     }
 
-    public function matieres()
-    { 
-        return $this->belongsTo(matiere::class); 
-    }
-    public function notes()
-    { 
-        return $this->belongsTo(note::class); 
-    }
 }

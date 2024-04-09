@@ -102,15 +102,17 @@ class HomeController extends Controller
     {
         $notes=note::with('etudiant','matiere')->get();
         return view('note.index',[
-            'notes'=>$notes
+            'notes'=>$notes,
         ]);
     }
 
     public function create_note()
     {
         $data=matiere::all();
+        $etudiants=inscription::with('etudiant')->get();
         return view('note.new',[
-            'matieres'=>$data
+            'matieres'=>$data,
+            'etudiants'=>$etudiants
         ]);
     }
 }

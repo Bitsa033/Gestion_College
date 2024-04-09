@@ -27,12 +27,14 @@
             </div>
 
         </form><br><br>
+       
         <table class="table table-bordered">
             <thead>
                 <tr>
-                  <th>Etudiant</th>
-                  <th>Matiere</th>
+                    <th>Etudiant</th>
+                    <th>Matiere</th>
                     <th>Note</th>
+                    <th>Cote</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,10 +43,12 @@
                   <td>{{$item->etudiant['name']}}</td>
                   <td>{{$item->matiere['name']}}</td>
                   <td>{{$item->moyenne}}</td>
+                  <td>{{$item->appreciation['code']}}</td>
               </tr>
-                @endforeach
+              @endforeach
             </tbody>
         </table>
+        
       </div>
     
       <!--custom chart end-->

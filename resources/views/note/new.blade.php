@@ -14,7 +14,11 @@
                 <label for="name" class="col-md-3 col-form-label text-md-end">{{ __('Etudiant') }}</label>
 
                 <div class="col-md-6">
-                    <input id="etudiant" type="text" class="form-control @error('name') is-invalid @enderror" name="etudiant" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                    <select type="text" class="form-control" name="etudiant">
+                      @foreach ($etudiants as $item)
+                      <option value="{{$item->id}}">{{$item->etudiant['name']}} {{$item->etudiant['surname']}} </option>
+                      @endforeach
+                    </select>
 
                     @error('name')
                         <span class="invalid-feedback" role="alert">
@@ -33,12 +37,12 @@
                   
                 <tr>
                   <td>
-                    <input type="checkbox" checked name="matiere[]" value="{{$item->id}}">
-                    <input type="hidden" name="cour[]" value="{{$item->id}}">
+                    <input type="checkbox" checked name="cour[]" value="{{$item->id}}">
+                    <input type="hidden" name="matiere[]" value="{{$item->id}}">
                     {{$item->name}}
                   </td>
                   <td>
-                    <input type="text" class="form-control @error('moyenne') is-invalid @enderror" name="moyenne[]" required autofocus>
+                    <input type="text" class="form-control" required name="moyenne[]" autofocus>
                   </td>
                 </tr>
               @endforeach

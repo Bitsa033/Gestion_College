@@ -6,6 +6,8 @@ use App\Models\note;
 use App\Http\Requests\StorenoteRequest;
 use App\Http\Requests\UpdatenoteRequest;
 use App\Http\Resources\Note as ResourcesNote;
+use App\Models\appreciation;
+use Illuminate\Support\Facades\DB;
 
 class NoteController extends Controller
 {
@@ -19,33 +21,45 @@ class NoteController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(StorenoteRequest $request)
     {
-        $check_array = $_POST['matiere'];
+        $cote=null;
+
+        $check_array = $_POST['cour'];
         foreach ($_POST['matiere'] as $key => $value) {
             if (in_array($_POST['matiere'][$key], $check_array)) {
+                $etu=$request->get('etudiant');
+                $mat=$_POST['matiere'][$key];
+                $moy=$_POST['moyenne'][$key];
+
+                if ($moy<=10) {
+                    $cote= "NA";
+                }
+                elseif ($moy<=14) {
+                    $cote= "EA";
+                }
+                elseif ($moy<=16) {
+                    $cote= "A";
+                }
+                elseif ($moy<=20) {
+                    $cote= "A+";
+                }
+                $appreciation=DB::table('appreciations')->where('code','=',$cote)->first();
+                // echo $moy,$cote;
+                $appreciation_id= $appreciation->id;
 
                 note::create([
-                    'etudiant_id'=>$request->get('etudiant'),
-                    'matiere_id'=>$_POST['matiere'][$key],
-                    'moyenne'=>$_POST['moyenne'][$key],
-                    'appreciation_id'=>1,
+                    'etudiant_id'=>$etu,
+                    'matiere_id'=>$mat,
+                    'moyenne'=>$moy,
+                    'appreciation_id'=>$appreciation_id,
                     'created_at'=>now(),
                     'updated_at'=>now()
                 ]);
             }
         }
-
 
         return redirect('notes');
     }
