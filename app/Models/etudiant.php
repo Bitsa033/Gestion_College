@@ -21,6 +21,11 @@ class etudiant extends Model
         return $this->belongsTo(inscription::class); 
     }
 
+    public function notes()
+    { 
+        return $this->belongsTo(note::class); 
+    }
+
     public function classes()
     { 
         return $this->belongsTo(inscription::class); 

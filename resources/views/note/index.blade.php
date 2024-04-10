@@ -38,12 +38,13 @@
                 </tr>
             </thead>
             <tbody>
+                
                 @foreach ($notes as $item)
                 <tr>
-                  <td>{{$item->etudiant['name']}}</td>
-                  <td>{{$item->matiere['name']}}</td>
+                  <td>{{$item->etudiants['name']}}</td>
+                  <td>{{$item->matieres['name']}}</td>
                   <td>{{$item->moyenne}}</td>
-                  <td>{{$item->appreciation['code']}}</td>
+                  <td>{{$item->appreciations['code']}}</td>
               </tr>
               @endforeach
             </tbody>

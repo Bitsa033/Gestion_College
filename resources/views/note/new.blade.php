@@ -16,7 +16,7 @@
                 <div class="col-md-6">
                     <select type="text" class="form-control" name="etudiant">
                       @foreach ($etudiants as $item)
-                      <option value="{{$item->id}}">{{$item->etudiant['name']}} {{$item->etudiant['surname']}} </option>
+                      <option value="{{$item->id}}">{{$item->name}} {{$item->surname}} </option>
                       @endforeach
                     </select>
 

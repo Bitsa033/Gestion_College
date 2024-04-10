@@ -16,21 +16,17 @@ class note extends Model
         'appreciation_id',
     ];
 
-    public function etudiant()
+    public function etudiants()
     { 
-        return $this->belongsTo(etudiant::class); 
-    }
-    public function inscription()
-    { 
-        return $this->hasOne(inscription::class,'etudiant_id'); 
+        return $this->belongsTo(etudiant::class,'etudiant_id'); 
     }
 
-    public function matiere()
+    public function matieres()
     { 
-        return $this->belongsTo(matiere::class); 
+        return $this->belongsTo(matiere::class,'matiere_id'); 
     }
-    public function appreciation()
+    public function appreciations()
     { 
-        return $this->belongsTo(appreciation::class); 
+        return $this->belongsTo(appreciation::class,'appreciation_id'); 
     }
 }

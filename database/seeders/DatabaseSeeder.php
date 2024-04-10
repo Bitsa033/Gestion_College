@@ -17,10 +17,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()
-        ->has(etudiant::factory()->count(4))
-        ->count(10)
-        ->create();
+        // User::factory()
+        // ->has(etudiant::factory()->count(4))
+        // ->count(10)
+        // ->create();
+        
         // $this->call([
         //     InscriptionSeeder::class
         //     NoteSeeder::class

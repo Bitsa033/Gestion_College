@@ -68,7 +68,7 @@ class HomeController extends Controller
         return view('coefficient.index');
     }
 
-    public function etudiant ()
+    public function etudiants ()
     {
         $etudiants=etudiant::all();
         return view('etudiant.index',[
@@ -100,7 +100,8 @@ class HomeController extends Controller
 
     public function notes()
     {
-        $notes=note::with('etudiant','matiere')->get();
+        $notes=note::with('etudiants','matieres','appreciations')->get();
+        // echo $notes;
         return view('note.index',[
             'notes'=>$notes,
         ]);
@@ -109,7 +110,7 @@ class HomeController extends Controller
     public function create_note()
     {
         $data=matiere::all();
-        $etudiants=inscription::with('etudiant')->get();
+        $etudiants=etudiant::all();
         return view('note.new',[
             'matieres'=>$data,
             'etudiants'=>$etudiants

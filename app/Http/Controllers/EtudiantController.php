@@ -39,7 +39,7 @@ class EtudiantController extends Controller
         //     'etudiant_id' => 1,
         // ]);
 
-        return redirect('etudiants');
+        return redirect('create_etudiant');
 
     }
 

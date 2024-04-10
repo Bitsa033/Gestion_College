@@ -27,23 +27,22 @@ return new class extends Migration
         Schema::create('classes', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            
             $table->timestamps();
         });
 
         Schema::create('matieres', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            
             $table->timestamps();
+            
         });
 
         Schema::create('appreciations', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
             $table->string('code')->unique();
-            
             $table->timestamps();
+            
         });
 
         Schema::create('etudiants', function (Blueprint $table) {
@@ -71,7 +70,7 @@ return new class extends Migration
             $table->unsignedBigInteger('matiere_id');
             $table->bigInteger('moyenne');
             $table->unsignedBigInteger('appreciation_id');
-            $table->foreign('etudiant_id')->references('id')->on('inscriptions');
+            $table->foreign('etudiant_id')->references('id')->on('etudiants');
             $table->foreign('matiere_id')->references('id')->on('matieres');
             $table->foreign('appreciation_id')->references('id')->on('appreciations');
             $table->timestamps();
