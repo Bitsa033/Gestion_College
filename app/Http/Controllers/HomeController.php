@@ -46,7 +46,7 @@ class HomeController extends Controller
         return view('acceuil.acceuil');
     }
 
-    public function classe()
+    public function classes()
     {
         $data=classe::all();
         return view('classe.index',[
@@ -54,7 +54,7 @@ class HomeController extends Controller
         ]);
     }
 
-    public function matiere()
+    public function matieres()
     {
         $data=matiere::all();
         // dd($data);
