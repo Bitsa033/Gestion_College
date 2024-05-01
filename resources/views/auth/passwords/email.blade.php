@@ -1,12 +1,13 @@
-<link rel="stylesheet" href="../dist/css/bootstrap.min.css">
-@extends('layouts.app')
+<!-- Font Awesome -->
+<link rel="stylesheet" href="../template/plugins/fontawesome-free/css/all.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="../template/dist/css/adminlte.min.css">
 
-@section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+                <div class="card-header">{{ __('Réinitialisation du mot de passe') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -19,7 +20,7 @@
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Addresse Email') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -45,4 +46,3 @@
         </div>
     </div>
 </div>
-@endsection

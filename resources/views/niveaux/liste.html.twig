@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <!-- Content Wrapper. Contains page content -->
+    <div
+        class="content-wrapper">
+
+        <!-- Main content -->
+        <section class="content">
+            <br>
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-md-8 offset-1 ">
+                        <div class="card card-blue">
+                            <div class="card-header ">
+                                <a href="{{ path('imprimer_niveau') }}">Imprimer</a>
+                            </div>
+
+                            <div class="card-body table-warning table-responsive p-0" style="height: 390px;">
+                                <table class="table table-head-fixed table-bordered">
+
+                                    <tbody>
+                                        <tr>
+                                            <th style="width:3%;">ID</th>
+                                            <th>Filiere</th>
+
+                                        </tr>
+                                        {% for niveau in niveaux %}
+                                            <tr>
+                                                <td>
+                                                    {{ niveau.id }}
+                                                </td>
+                                                <td>
+                                                    <strong>{{ niveau.nom }}</strong>
+                                                    <br>
+                                                        <i>{{ niveau.nom }}</i>
+                                                    </td>
+
+                                                </tr>
+                                            {% else %}
+                                                <tr>
+                                                    <td colspan="2">Liste vide !</td>
+                                                </tr>
+                                            {% endfor %}
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <!-- /.card-body -->
+                                <div class="card-footer">@Developpé par: BITSA NDZIE PASCAL</div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                {% endblock %}

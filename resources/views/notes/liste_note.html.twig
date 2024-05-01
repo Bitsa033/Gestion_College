@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulletin de notes</title>
+    <link rel="stylesheet" href="template/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="row">
+        <div class="coll-md-10 offset-2">
+            <table class="table table-bordered">
+                <head>
+                    <tr>
+                        <th colspan="8" class="text-center"><h1 style="color: indigo;">Liste des notes</h1></th>
+                    </tr>
+                </head>
+
+                <head>
+                    <tr>
+                        <th>Etudiant</th>
+                        <th>Matiere</th>
+                        <th>Note</th>
+                        <th>Credit</th>
+                        <th>Total</th>
+                        <th>Enseignant</th>
+                        <th>Apprec</th>
+                    </tr>
+                    {% for row in notes %}
+                    <tr>
+                        <td>{{row.inscription.etudiant.nom}} {{row.inscription.etudiant.prenom}}</td>
+                        <td>{{row.ue.matiere.nom}}</td>
+                        <td>{{row.moyenne}}</td>
+                        <td>3</td>
+                        <td>36/60</td>
+                        <td>Ms TALLA FOTSO</td>
+                        <td>ECA</td>
+                    </tr>
+                    {% else %}
+
+                    {% endfor %}
+                </head>
+            </table>
+        </div>
+        {# end col #}
+    </div>
+    {# end row #}
+</body>
+
+</html>

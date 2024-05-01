@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <!-- Content Wrapper. Contains page content -->
+    <div
+        class="content-wrapper">
+
+        <!-- Main content -->
+        <section class="content">
+            <br>
+                <div class="row">
+                    <div class="col-md-8 offset-2">
+                        <div class="card ">
+                            <h5 class="offset-2">Etudiant...</h5>
+
+                            <div class="card-body table-responsive p-0" style="height: 400px;">
+
+                                <table class="table table-head-fixed text-nowrap">
+
+                                    <form action="{{ path('porte_releve_de_notes_traitement') }}" method="post">
+
+                                        <tr>
+                                           
+                                            <td>
+                                                <table class="table">
+                                                    <tr>
+                                                        <th style="width: 1%;"></th>
+                                                        <th>Etudiant</th>
+                                                    </tr>
+                                                    {% for i in inscriptions %}
+                                                    <tr>
+                                                        <td><input type="checkbox" name="etudiant" value="{{i.id}}" id=""></td>
+                                                        <td>{{ i.etudiant.nom }}</td>
+                                                    </tr>
+                                                    {# <select name="etudiantId" id="" class="form-control">
+                                                    <option value="{{ i.id }}">{{ i.etudiant.nom }}</option> #}
+                                                    {% else %}
+                                                    {# <option value="">Tableau vide...</option> #}
+                                                    {# </select> #}
+                                                    <tr>
+                                                        <td colspan="2">Liste vide ...</td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </table>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">
+                                                <button name="enregistrer" class="btn btn-success 
+                                                form-control"
+                                                type="submit" name="notes_etudiant" value="notes_etudiant"
+                                                >Suivant</button>
+                                            </td>
+                                        </tr>
+                                    </form>
+
+                                </div>
+
+                            </div>
+                        </table>
+                        <!-- /.content-wrapper -->
+
+                    </div>
+                </div>
+                <!-- /.card -->
+            </div>
+        </div>
+
+    </section>
+{% endblock %}

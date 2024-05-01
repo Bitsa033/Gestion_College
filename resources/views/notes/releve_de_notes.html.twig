@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulletin de notes</title>
+    <link rel="stylesheet" href="template/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-4">
+            <div>
+                <table>
+                    <tr>
+                        <th><strong>UNIVERSITE DE YAOUNDE II-SOA</strong></th>
+                    </tr>
+                    <tr>
+                        <td>TEL: <strong>697-876-089</strong></td>
+                    </tr>
+                    <tr>
+                        <td>BP: <strong>335675- YAOUNDE II-SOA</strong></td>
+                    </tr>
+                    <tr>
+                        <td>ANNEE SCOLAIRE: <strong>2022-2023</strong></td>
+                    </tr>
+                </table>
+            </div>
+            <!-- /div -->
+        </div>
+        <!-- /col -->
+        <div class="col-md-4">
+            <div>
+                
+            </div>
+            <!-- /div -->
+        </div>
+        <!-- /col -->
+        <div class="col-md-4">
+            <div>
+                <table>
+                    <tr>
+                        <td>Nom et prenom: </td>
+                        <th><strong>{{inscription.etudiant.nom}} {{inscription.etudiant.prenom}}</strong></th>
+                    </tr>
+                    <tr>
+                        <td>Matricule </td>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td>Niveau </td>
+                        <th>{{niveau.nom}}</th>
+                    </tr>
+                    <tr>
+                        <td>Classe </td>
+                        <th>{{filiere.nom}}</th>
+                    </tr>
+                </table>
+            </div>
+            <!-- /div -->
+        </div>
+        <!-- /col -->
+    </div>
+    <!-- /row -->
+
+    <div class=" offset-4">
+        **RELEVE DE NOTES**
+    </div>
+    <!--/div-->
+    <div class="row">
+        <div class="col">
+            <table class="table table-condensed table-bordered">
+                <tr>
+                    <td>Matiere</td>
+                    <td>Note</td>
+                    <td>Coeff</td>
+                    <td>Note X Coeff</td>
+                    <td>Enseignant</td>
+                    <td>Apprec</td>
+                </tr>
+                {% for row in notes %}
+                <tr>
+                    <td>{{row.ue.matiere.nom}}</td>
+                    <td>{{row.moyenne}}</td>
+                    <td>3</td>
+                    <td>36/60</td>
+                    <td>Ms TALLA FOTSO</td>
+                    <td>ECA</td>
+                </tr>
+                {% else %}
+                    
+                {% endfor %}
+            </table>
+        </div>
+        <!--/col-->
+    </div>
+    <!--/row-->
+    <div class="row">
+        <div class="col-md-2">
+            <table class="table">
+                <tr>
+                    <td>Credits</td>
+                    <td><strong>27</strong></td>
+                </tr>
+                <tr>
+                    <td>Points</td>
+                    <td><strong>297</strong></td>
+                </tr>
+            </table>
+        </div>
+        <!--/col-->
+        <div class="col-md-2">
+            <table class="table">
+                <tr>
+                    <td>Capitalisés</td>
+                    <td><strong>15</strong></td>
+                </tr>
+                <tr>
+                    <td>Moyenne</td>
+                    <td><strong>11,37</strong>/20</td>
+                </tr>
+            </table>
+        </div>
+        <!--/col-->
+        <div class="col-md-4">
+            <table class="table">
+                <tr>
+                    <td>Décision</td>
+                    <td><strong>Admis</strong></td>
+                </tr>
+                <tr>
+                    <td>Appréciation</td>
+                    <td><strong>Promu au niveau 3</strong></td>
+                </tr>
+            </table>
+        </div>
+        <!--/col-->
+        <div class="col-md-2">
+            <table class="table table-bordered">
+                <tr>
+                    <td>Abscences</td>
+                    <td><strong>0</strong></td>
+                </tr>
+                <tr>
+                    <td>Retards</td>
+                    <td><strong>6</strong></td>
+                </tr>
+            </table>
+        </div>
+        <!--/col-->
+        <div class="col-md-2">
+            <table class="table table-bordered">
+                <tr>
+                    <td>Abscences</td>
+                    <td><strong>2000</strong></td>
+                </tr>
+                <tr>
+                    <td>Retards</td>
+                    <td><strong>600</strong></td>
+                </tr>
+            </table>
+        </div>
+        <!--/col-->
+    </div>
+    <!--/row-->
+    <div class="row">
+        <div class="col-md-6">
+            Visa du Recteur
+        </div>
+        <!--/col-->
+        <div class="col-md-6 text-right">
+            Visa du Directeur des etudes
+        </div>
+        <!--/col-->
+    </div>
+</body>
+</html>

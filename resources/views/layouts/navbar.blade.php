@@ -5,9 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>collège</title>
+    <title>Collège</title>
     <link rel="stylesheet" href="dist/css/bootstrap.min.css">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="assets/js/vendor/popper.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
@@ -24,13 +23,7 @@
 
         <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a href="{{route('acceuil')}}" class="nav-link">Accueil</a>
-                </li>
-                {{-- <li class="nav-item">
-                    <a href="{{route('acceuil')}}" class="nav-link">Utilisateurs</a>
-                </li> --}}
-
+                
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">Classes</a>

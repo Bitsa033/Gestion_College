@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\etudiant;
-use App\Http\Requests\StoreetudiantRequest;
-use App\Http\Requests\UpdateetudiantRequest;
-use App\Http\Resources\Etudiant as ResourcesEtudiant;
 use App\Models\inscription;
-use App\Models\User;
+use DateTime;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class EtudiantController extends Controller
@@ -17,44 +16,42 @@ class EtudiantController extends Controller
      */
     public function index()
     {
-        $data = User::with('etudiant')->get();
-        return new ResourcesEtudiant($data);
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreEtudiantRequest $request)
+    public function store(Request $request)
     {
-        $tore_etudiant=etudiant::create([
-            'user_id' => 1,
-            'name' => $request['name'],
-            'surname' => $request['surname'],
-            'phone' => $request['phone'],
-            'adress' => $request['adress'],
+        $name= $request->get('name');
+        $surname= $request->get('surname');
+        $phone= $request->get('phone');
+        $adress= $request->get('adress');
+        $user= DB::table('users')->where('id','=',1)->first('id');
+        $classe= $request->get('classe');
+        // dd($user);
+       $etudiant= etudiant::create([
+            'name'=>$name,
+            'surname'=>$surname,
+            'phone'=>$phone,
+            'adress'=>$adress,
+            'user_id'=>1
         ]);
-        $etudiant=DB::table('etudiants')->where('name','=',$tore_etudiant);
-        // dd($etudiant);
+
         // inscription::create([
-        //     'etudiant_id' => 1,
+        //     'etudiant_id'=>$etudiant,
+        //     'classe_id'=>$classe,
+        //     'created_at'=>'20241010',
+        //     'updated_at'=>'20241010'
         // ]);
-
-        return redirect('create_etudiant');
-
+        return redirect('etudiants');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(etudiant $etudiant)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(etudiant $etudiant)
+    public function show(string $id)
     {
         //
     }
@@ -62,7 +59,7 @@ class EtudiantController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateetudiantRequest $request, etudiant $etudiant)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -70,7 +67,7 @@ class EtudiantController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(etudiant $etudiant)
+    public function destroy(string $id)
     {
         //
     }

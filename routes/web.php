@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -16,19 +19,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login2');
+});
+
+Route::get('register', function () {
+    return view('auth.register2');
 });
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('acceuil', [HomeController::class,'acceuil'])->name('acceuil');
-Route::get('classes', [HomeController::class,'classes'])->name('classes');
-Route::get('etudiants', [HomeController::class,'etudiants'])->name('etudiants');
-Route::get('inscriptions', [HomeController::class,'inscriptions'])->name('inscriptions');
-Route::get('create_etudiant', [HomeController::class,'create_etudiant'])->name('create_etudiant');
-Route::get('matieres', [HomeController::class,'matieres'])->name('matieres');
-Route::get('create_inscription', [HomeController::class,'create_inscription'])->name('create_inscription');
+// Route::get('register', [RegisterController::class, 'index'])->name('register');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('classe', [HomeController::class,'classe'])->name('classe');
+Route::get('classes', [HomeController::class,'classes'])->name('liste_classes');
+Route::get('matiere', [HomeController::class,'matiere'])->name('matiere');
+Route::get('matieres', [HomeController::class,'matieres'])->name('liste_matieres');
+Route::get('etudiant', [HomeController::class,'etudiant'])->name('etudiant');
+Route::get('etudiants', [HomeController::class,'etudiants'])->name('liste_etudiants');
+Route::get('inscription', [HomeController::class,'inscription'])->name('inscription');
 Route::get('notes', [HomeController::class,'notes'])->name('notes');
 Route::get('create_note', [HomeController::class,'create_note'])->name('create_note');
 Route::get('appreciations', [HomeController::class,'appreciations'])->name('appreciations');

@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <!-- Content Wrapper. Contains page content -->
+    <div
+        class="content-wrapper">
+
+        <!-- Main content -->
+        <section class="content">
+            <br>
+                <div class="row">
+
+                    <div class="col-8 offset-1">
+
+                        <div class="card card-blue">
+                            <div class="card-header">
+                                <form action="{{ path('quantite_niveau') }}" method="post">
+                                    <div class="form-inline">
+                                        <input type="number" name="nb_row" class="form-control" placeholder="Nbre de niveaux à créer">
+                                            <button type="submit" class="form-control">Ok</button>
+                                        </div>
+                                    </form>
+
+                                </div>
+                                <div class="card-header">
+                                    <a href="{{ path('liste_niveau') }}">Consulter la liste des niveaux</a>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body table-warning table-responsive p-0" style="height: 250px;">
+                                    <form action="" method="post">
+                                        <table class="table table-head-fixed text-nowrap">
+
+                                            <tbody>
+                                                <tr>
+                                                    <th>Niveau(x)</th>
+                                                </tr>
+
+                                                {% for nb_row in nb_rows %}
+                                                    <tr>
+                                                        <th>
+                                                            <input type="text" name="classe{{ nb_row }}" class="form-control" placeholder="Nom du niveau d'étude" id="" required></th>
+                                                        </tr>
+
+                                                    {% endfor %}
+
+
+                                                </tbody>
+                                                <!-- /.tbody -->
+                                            </table>
+                                            <!-- /.form -->
+
+                                        </div>
+                                        <!-- /.card-body -->
+                                        <div class="card-footer">
+                                            <button type="submit" name="enregistrer" class="btn btn-success form-control offset-1 col-10">Enregistrer</button>
+                                            <br>
+                                                <br></form>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                                <!-- /.card -->
+
+                            </div>
+                            <!-- /.col -->
+
+
+                        </div>
+
+                        <!-- /.row -->
+
+                    </section>
+                </div>
+            {% endblock %}

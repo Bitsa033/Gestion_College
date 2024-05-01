@@ -14,8 +14,7 @@ class ClasseController extends Controller
      */
     public function index()
     {
-        $data = classe::all();
-        return new ResourcesClasse($data);
+        dd('toto');
     }
 
 

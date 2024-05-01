@@ -1,143 +1,185 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="Dashboard">
-  <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>Dashio - Bootstrap Admin Template</title>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Collège | App</title>
 
-  <!-- Favicons -->
-  <link href="Dashio/img/favicon.png" rel="icon">
-  <link href="Dashio/img/apple-touch-icon.png" rel="apple-touch-icon">
+		<!-- Google Font: Source Sans Pro -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="template/plugins/fontawesome-free/css/all.min.css">
+		<!-- Ekko Lightbox -->
+		<!-- Theme style -->
+		<link rel="stylesheet" href="template/dist/css/adminlte.min.css">
+	</head>
 
-  <!-- Bootstrap core CSS -->
-  <link href="Dashio/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!--external css-->
-  <link href="Dashio/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="Dashio/css/zabuto_calendar.css">
-  <link rel="stylesheet" type="text/css" href="Dashio/lib/gritter/css/jquery.gritter.css" />
-  <!-- Custom styles for this template -->
-  <link href="Dashio/css/style.css" rel="stylesheet">
-  <link href="Dashio/css/style-responsive.css" rel="stylesheet">
-  <script src="Dashio/lib/chart-master/Chart.js"></script>
+	<body class="hold-transition sidebar-mini">
+		<div class="wrapper">
+			<!-- Navbar -->
+			<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+				<!-- Left navbar links -->
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+					</li>
+					<li class="nav-item d-none d-sm-inline-block">
+						<a href="" class="nav-link">Elèves</a>
+					</li>
+					<li class="nav-item d-none d-sm-inline-block">
+						<a href="" class="nav-link">Notes</a>
+					</li>
+				</ul>
 
-  <!-- =======================================================
-    Template Name: Dashio
-    Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
-    Author: TemplateMag.com
-    License: https://templatemag.com/license/
-  ======================================================= -->
-</head>
+				<!-- Right navbar links -->
+				<ul class="navbar-nav ml-auto">
+					
+					<!-- Paramètres de l'application -->
+					
+					<!-- Profil utilisateur -->
+					<li class="nav-item dropdown">
+						<a class="nav-link" data-toggle="dropdown" href="">
+							{{ Auth::user()->surname }}
+							<i class="far fa-user"></i>
+						</a>
+						<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+							<span class="dropdown-item dropdown-header">Profile</span>
+							<div class="dropdown-divider"></div>
+							<form action="{{route('logout')}}" method="post">
+								@csrf
+								<button type="submit" class="btn btn-primary col-md-12">
+									<i class="fas fa-key"></i> Logout
+								</button>
+							</form>
+							
+							<div class="dropdown-divider"></div>
+							
+						</div>
+					</li>
+					
+				</ul>
+			</nav>
+			<!-- /.navbar -->
 
-<body>
-  <section id="container" class="card">
-    <!-- **********************************************************************************************************************************************************
-        TOP BAR CONTENT & NOTIFICATIONS
-        *********************************************************************************************************************************************************** -->
-    <!--header start-->
-    @include('layouts.header')
-    <!--header end-->
-    <!-- **********************************************************************************************************************************************************
-        MAIN SIDEBAR MENU
-        *********************************************************************************************************************************************************** -->
-    <!--sidebar start-->
-    @include('layouts.sidebar')
-    <!--sidebar end-->
-    <!-- **********************************************************************************************************************************************************
-        MAIN CONTENT
-        *********************************************************************************************************************************************************** -->
-    <!--main content start-->
-    <section id="main-content">
-      <section class="wrapper">
-        @yield('content')
-      </section>
-    </section>
-    <!--main content end-->
-    <!--footer start-->
-    @yield('footer')
-    <!--footer end-->
-  </section>
-  <!-- js placed at the end of the document so the pages load faster -->
-  <script src="Dashio/lib/jquery/jquery.min.js"></script>
+			<!-- Main Sidebar Container -->
+			<aside class="main-sidebar sidebar-dark-primary elevation-4">
+				<!-- Brand Logo -->
+				<a href="" class="brand-link">
+					<span class="brand-text font-weight-light">Collège App</span>
+				</a>
 
-  <script src="Dashio/lib/bootstrap/js/bootstrap.min.js"></script>
-  <script class="include" type="text/javascript" src="Dashio/lib/jquery.dcjqaccordion.2.7.js"></script>
-  <script src="Dashio/lib/jquery.scrollTo.min.js"></script>
-  <script src="Dashio/lib/jquery.nicescroll.js" type="text/javascript"></script>
-  <script src="Dashio/lib/jquery.sparkline.js"></script>
-  <!--common script for all pages-->
-  <script src="Dashio/lib/common-scripts.js"></script>
-  <script type="text/javascript" src="Dashio/lib/gritter/js/jquery.gritter.js"></script>
-  <script type="text/javascript" src="Dashio/lib/gritter-conf.js"></script>
-  <!--script for this page-->
-  <script src="Dashio/lib/sparkline-chart.js"></script>
-  <script src="Dashio/lib/zabuto_calendar.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      var unique_id = $.gritter.add({
-        // (string | mandatory) the heading of the notification
-        title: 'Welcome to Dashio!',
-        // (string | mandatory) the text inside the notification
-        text: 'Hover me to enable the Close Button. You can hide the left sidebar clicking on the button next to the logo.',
-        // (string | optional) the image to display on the left
-        image: 'img/ui-sam.jpg',
-        // (bool | optional) if you want it to fade out on its own or just sit there
-        sticky: false,
-        // (int | optional) the time you want it to be alive for before fading out
-        time: 8000,
-        // (string | optional) the class name you want to apply to that specific message
-        class_name: 'my-sticky-class'
-      });
+				<!-- Sidebar -->
+				<div class="sidebar">
+					<!-- Sidebar user panel (optional) -->
+					{{-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+						
+						<div class="info">
+							
+						</div>
+					</div> --}}
 
-      return false;
-    });
-  </script>
-  <script type="application/javascript">
-    $(document).ready(function() {
-      $("#date-popover").popover({
-        html: true,
-        trigger: "manual"
-      });
-      $("#date-popover").hide();
-      $("#date-popover").click(function(e) {
-        $(this).hide();
-      });
+					<!-- Sidebar Menu -->
+					<nav class="mt-2">
+						<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+							data-accordion="false">
+							
+							<li class="nav-item">
+								<a href="#" class="nav-link">
+									<i class="nav-icon fas fa-th"></i>
+									<p>
+										Gestion des élèves
+										<i class="fas fa-angle-left right"></i>
+									</p>
+								</a>
+								<ul class="nav nav-treeview">
+									<li class="nav-item">
+										<a href="{{url('classe')}}" class="nav-link">
+											<i class="fa fa-plus"></i>
+											<p>Enregistrer les classes</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="{{url('matiere')}}" class="nav-link">
+											<i class="fa fa-plus"></i>
+											<p>Enregistrer les Matières</p>
+										</a>
+									</li>
+                                    <li class="nav-item">
+										<a href="{{url('etudiant')}}" class="nav-link">
+											<i class="fa fa-plus"></i>
+											<p>Enregistrer les élèves</p>
+										</a>
+									</li>
+                                    
+								</ul>
+							</li>
+							
+							<li class="nav-item">
+								<a href="#" class="nav-link">
+									<i class="nav-icon fas fa-th"></i>
+									<p>
+										Gestion des notes
+										<i class="fas fa-angle-left right"></i>
+									</p>
+								</a>
+								<ul class="nav nav-treeview">
+									
+									<li class="nav-item">
+										<a href="" class="nav-link">
+											<i class="fa fa-plus"></i>
+											<p>Enregistrer les notes</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="" class="nav-link">
+											<i class="fa fa-eye"></i>
+											<p>Afficher les notes</p>
+										</a>
+									</li>
 
-      $("#my-calendar").zabuto_calendar({
-        action: function() {
-          return myDateFunction(this.id, false);
-        },
-        action_nav: function() {
-          return myNavFunction(this.id);
-        },
-        ajax: {
-          url: "show_data.php?action=1",
-          modal: true
-        },
-        legend: [{
-            type: "text",
-            label: "Special event",
-            badge: "00"
-          },
-          {
-            type: "block",
-            label: "Regular event",
-          }
-        ]
-      });
-    });
+								</ul>
+							</li>
+							
+                        </ul>
+					</nav>
+					<!-- /.sidebar-menu -->
+				</div>
+				<!-- /.sidebar -->
+			</aside>
 
-    function myNavFunction(id) {
-      $("#date-popover").hide();
-      var nav = $("#" + id).data("navigation");
-      var to = $("#" + id).data("to");
-      console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
-    }
-  </script>
-</body>
+			<!-- Content Wrapper. Contains page content -->
+			<div class="content-wrapper">
+				@yield('content')
+			</div>
+			<!-- /.content-wrapper -->
+
+			<footer class="main-footer">
+				<div class="float-right d-none d-sm-block">
+
+				</div>
+				<strong>Copyright &copy; <a target="_blank" href="http://pascalbitsa.000webhost.com">Pascal Bitsa.</a>.</strong>
+				Tout droit reservé.
+			</footer>
+
+			<!-- Control Sidebar -->
+			<aside class="control-sidebar control-sidebar-dark">
+				<!-- Control sidebar content goes here -->
+			</aside>
+			<!-- /.control-sidebar -->
+		</div>
+		<!-- ./wrapper -->
+
+		<!-- jQuery -->
+		<script src="template/plugins/jquery/jquery.min.js"></script>
+		<!-- Bootstrap -->
+		<script src="template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<!-- AdminLTE App -->
+		<script src="template/dist/js/adminlte.min.js"></script>
+		<!-- AdminLTE for demo purposes -->
+		<script src="template/dist/js/demo.js"></script>
+		<!-- Page specific script -->
+
+	</body>
 
 </html>

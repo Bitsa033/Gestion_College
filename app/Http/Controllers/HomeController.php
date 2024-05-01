@@ -23,14 +23,6 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    public function index2($slug = null)
-    {
-        $query = $slug ? User::whereSlug($slug)->firstOrFail()->films() : etudiant::query();
-        $films = $query->withTrashed()->oldest('title')->paginate(5);
-        $categories = User::all();
-        return view('index', compact('films', 'categories', 'slug'));
-    }
-
     /**
      * Show the application dashboard.
      *
@@ -41,60 +33,59 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function acceuil()
+    public function classe()
     {
-        return view('acceuil.acceuil');
+        return view('classe.nouvelle',[
+            
+        ]);
     }
 
     public function classes()
     {
-        $data=classe::all();
-        return view('classe.index',[
-            'classes'=>$data
+        $classes=classe::all();
+        return view('classe.liste',[
+            'classes'=>$classes
         ]);
     }
 
+    public function matiere()
+    {
+        return view('matiere.nouvelle',[
+        ]);
+    }
+    
     public function matieres()
     {
-        $data=matiere::all();
-        // dd($data);
-        return view('matiere.index',[
-            'matieres'=>$data
+        $matieres=matiere::all();
+        
+        return view('matiere.liste',[
+            'matieres'=>$matieres
+        
         ]);
     }
 
-    public function coefficient()
+    public function etudiant ()
     {
-        return view('coefficient.index');
+        $classes=classe::all();
+        return view('etudiant.nouvel',[
+            'classes'=>$classes
+        ]);
     }
 
     public function etudiants ()
     {
         $etudiants=etudiant::all();
-        return view('etudiant.index',[
+        return view('etudiant.liste',[
             'etudiants'=>$etudiants
         ]);
     }
 
-    public function inscriptions()
+    public function inscription()
     {
         $inscriptions = inscription::with('etudiant','classe')->get();
         
-        return view('etudiant.inscriptions',[
-            'etudiants'=>$inscriptions
-        ]);
-    }
-
-    public function create_etudiant()
-    {
-        return view('etudiant.new');
-    }
-
-    public function create_inscription()
-    {
-        $data=etudiant::all();
         return view('etudiant.inscription',[
-            'inscriptions'=>$data
+            'etudiant'=>$inscriptions
         ]);
     }
 

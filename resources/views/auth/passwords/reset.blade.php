@@ -1,7 +1,8 @@
-<link rel="stylesheet" href="../dist/css/bootstrap.min.css">
-@extends('layouts.app')
+<!-- Font Awesome -->
+<link rel="stylesheet" href="../template/plugins/fontawesome-free/css/all.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="../template/dist/css/adminlte.min.css">
 
-@section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -63,4 +64,3 @@
         </div>
     </div>
 </div>
-@endsection

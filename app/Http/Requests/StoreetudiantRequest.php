@@ -22,7 +22,10 @@ class StoreetudiantRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'phone' => ['required', 'string', 'max:255', 'unique:users'],
+            'name' => ['required', 'string', 'max:255', 'unique:users'],
+            'surname' => ['required', 'string', 'max:255'],
+            'sexe' => ['required', 'string', 'max:255'],
+            'classe' => ['required', 'string', 'max:255'],
         ];
     }
 }

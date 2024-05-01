@@ -3,6 +3,7 @@
 use App\Http\Controllers\AppreciationController;
 use App\Http\Controllers\ClasseController;
 use App\Http\Controllers\EtudiantController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InscriptionController;
 use App\Http\Controllers\MatiereController;
 use App\Http\Controllers\NoteController;
@@ -28,13 +29,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // utilisateurs
 Route::get('users',[UserController::class,'index']);
-Route::post('store_user', [UserController::class,'store']);
-Route::post('login_user', [UserController::class,'login']);
-Route::get('show_user/{id}', [UserController::class,'show']);
-Route::put('update_user/{id}', [UserController::class,'update']);
-Route::get('logout_user', [UserController::class,'logout'])->middleware('auth:sanctum');
+// Route::post('store_user', [UserController::class,'store']);
+// Route::post('login_user', [UserController::class,'login']);
+// Route::get('show_user/{id}', [UserController::class,'show']);
+// Route::put('update_user/{id}', [UserController::class,'update']);
+// Route::get('logout_user', [UserController::class,'logout'])->middleware('auth:sanctum');
 // classes
-Route::get('classes',[ClasseController::class,'index'])->name('classes');
 Route::post('store_classe',[ClasseController::class,'store'])->name('store_classe');
 Route::get('show_classe',[EtudiantFactory::class,'show']);
 Route::put('update_classe/{id}', [UserController::class,'update']);
@@ -44,7 +44,7 @@ Route::post('store_matiere', [MatiereController::class,'store'])->name('store_ma
 Route::get('show_matiere/{id}', [MatiereController::class,'show'])->name('show_matiere');
 Route::put('update_matiere/{id}', [UserController::class,'update'])->name('update_matiere');
 // etudiants
-Route::get('etudiants', [EtudiantController::class,'index'])->name('etudiants');
+Route::get('etudiants', [HomeController::class,'etudiants'])->name('etudiants');
 Route::post('store_etudiant', [EtudiantController::class,'store'])->name('store_etudiant');
 Route::get('show_etudiant/{id}', [EtudiantController::class,'show'])->name('show_etudiant');
 Route::put('update_etudiant/{id}', [EtudiantController::class,'update']);

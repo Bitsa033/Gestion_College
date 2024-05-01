@@ -23,7 +23,7 @@ class MatiereController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreclasseRequest $request)
+    public function store(StorematiereRequest $request)
     {
         matiere::create([
             'name' => $request->get('name'),
