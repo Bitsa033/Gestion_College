@@ -60,6 +60,8 @@ Route::get('show_inscription/{id}', [InscriptionController::class,'show']);
 Route::put('update_inscription/{id}', [InscriptionController::class,'update']);
 // notes
 Route::get('notes', [NoteController::class,'index']);
-Route::post('store_note', [NoteController::class,'store'])->name('store_note');
+
+// Route::post('note_session', [NoteController::class,'note_session'])->name('note_session');
+
 Route::get('show_note/{id}', [NoteController::class,'show']);
 Route::put('update_note/{id}', [NoteController::class,'update']);

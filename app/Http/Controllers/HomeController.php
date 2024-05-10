@@ -64,7 +64,7 @@ class HomeController extends Controller
         ]);
     }
 
-    public function etudiant ()
+    public function etudiant()
     {
         $classes=classe::all();
         return view('etudiant.nouvel',[
@@ -72,7 +72,7 @@ class HomeController extends Controller
         ]);
     }
 
-    public function etudiants ()
+    public function etudiants()
     {
         $etudiants=etudiant::all();
         return view('etudiant.liste',[
@@ -89,6 +89,18 @@ class HomeController extends Controller
         ]);
     }
 
+    public function note()
+    {
+        $matieres=matiere::all();
+        $etudiants=etudiant::all();
+        $classes=classe::all();
+        return view('notes.nouvelle',[
+            'matieres'=>$matieres,
+            'etudiants'=>$etudiants,
+            'classes'=>$classes
+        ]);
+    }
+
     public function notes()
     {
         $notes=note::with('etudiants','matieres','appreciations')->get();
@@ -98,13 +110,4 @@ class HomeController extends Controller
         ]);
     }
 
-    public function create_note()
-    {
-        $data=matiere::all();
-        $etudiants=etudiant::all();
-        return view('note.new',[
-            'matieres'=>$data,
-            'etudiants'=>$etudiants
-        ]);
-    }
 }
