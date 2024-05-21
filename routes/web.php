@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NoteController;
@@ -21,11 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login2');
-});
-
-Route::get('register', function () {
-    return view('auth.register2');
+    return view('welcome');
 });
 
 Auth::routes();

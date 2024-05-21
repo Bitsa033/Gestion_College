@@ -148,7 +148,7 @@
 					</form>
 
 					<p class="mb-0">
-						<a href="/" class="text-center">J'ai déja un compte</a>
+						<a href="{{route('login')}}" class="text-center">J'ai déja un compte</a>
 					</p>
 				</div>
 				<!-- /.login-card-body -->

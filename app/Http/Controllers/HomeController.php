@@ -94,10 +94,16 @@ class HomeController extends Controller
         $matieres=matiere::all();
         $etudiants=etudiant::all();
         $classes=classe::all();
+        $sequences=array([
+            'id'=>1,
+            'name'=>'seq 1'
+        ]);
+
         return view('notes.nouvelle',[
             'matieres'=>$matieres,
             'etudiants'=>$etudiants,
-            'classes'=>$classes
+            'classes'=>$classes,
+            'sequences'=>$sequences
         ]);
     }
 
@@ -105,7 +111,7 @@ class HomeController extends Controller
     {
         $notes=note::with('etudiants','matieres','appreciations')->get();
         // echo $notes;
-        return view('note.index',[
+        return view('notes.liste',[
             'notes'=>$notes,
         ]);
     }
